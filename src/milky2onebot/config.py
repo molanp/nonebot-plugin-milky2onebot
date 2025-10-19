@@ -1,3 +1,4 @@
+import nonebot
 from yarl import URL
 from pydantic import Field, BaseModel
 
@@ -14,11 +15,19 @@ class ClientInfo(BaseModel):
         return str(URL(f"http://{self.host}:{self.port}") / "api" / route)
 
     def ws_url(self):
-        return (URL(f"ws://{self.host}:{self.port}") / "event").with_query(
-            None if self.access_token is None else {"access_token": self.access_token}
-        )
+        return f"ws://{self.host}:{self.port}/event"
+
+    def get_headers(self) -> dict[str, str]:
+        if self.access_token is None:
+            return {}
+        return {"Authorization": f"Bearer {self.access_token}"}
 
 
 class Config(BaseModel):
     MILKY2OB_CLIENTS: list[ClientInfo] = Field(default_factory=list)
     """MILKY连接配置"""
+
+
+plugin_config: Config = nonebot.get_plugin_config(Config)
+system_config = nonebot.get_driver().config
+onebot_base = f"ws://{system_config.host}:{system_config.port}/onebot/"
