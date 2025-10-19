@@ -6,6 +6,7 @@
 >
 > 当前只支持 WebSocket 的 Milky 协议转换
 >
+> 本插件以 NapCat 的 Onebot V11为标准，V12 以官方文档为标准
 
 ## 使用
 
