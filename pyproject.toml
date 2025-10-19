@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "nonebot-plugin-milk2ob"
+version = "0.0.1"
+description = "一个将 Milky 协议转换到 Onebot 协议的 Nonebot 插件"
+readme = "README.md"
+requires-python = ">=3.9"
+authors = ["molanp <molanpp@outlook.com>"]
+license = "GPL-3.0"
+homepage = "https://github.com/molanp/nonebot-plugin-milky2onebot"
+repository = "https://github.com/molanp/nonebot-plugin-milky2onebot"
+include = ["src/nonebot-plugin-milky2onebot/**/*"]
+keywords = ["nonebot", "nonebot2", "milky", "onebot", "plugin", "server"]
+
+[tool.poetry.dependencies]
+nonebot2 = ">=2.2.0"
+websockets = ">=14"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
