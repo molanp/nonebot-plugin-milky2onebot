@@ -8,6 +8,10 @@
 >
 > 本插件以 [ws-plugin](https://github.com/XasYer/ws-plugin) 的 Onebot V11 为标准
 
+> [!NOTE]
+>
+> 本插件返回的 `message_id` 使用 `int65` 类型，反正 nonebot 能跑就行 (~~因为这个插件本来就是为 nonebot 服务~~)
+
 ## 使用
 
 此插件会自动链接 Onebot 的 WebSocket 服务器，并自动将 Milky 协议的请求转发给 Onebot，请同时注册 Onebot 适配器并正确填写配置
