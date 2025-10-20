@@ -66,7 +66,7 @@ def MsgtoId(scene: Literal["friend", "group", "temp"], peer_id: int, seq: int) -
 def MsgtoSeq(msg_id: int) -> Tuple[str, int, int]:
     """
     OneBot message_id to Milky scene, peer_id, seq
-    
+
     :return: "friend"|"group"|"temp", peer_id, seq
     """
     if not isinstance(msg_id, int):
