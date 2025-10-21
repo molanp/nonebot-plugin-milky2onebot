@@ -17,17 +17,15 @@ class ClientInfo(BaseModel):
     def ws_url(self):
         return f"ws://{self.host}:{self.port}/event"
 
-    def get_headers(self) -> dict[str, str]:
-        if self.access_token is None:
-            return {}
-        return {"Authorization": f"Bearer {self.access_token}"}
-
 
 class Config(BaseModel):
     MILKY2OB_CLIENTS: list[ClientInfo] = Field(default_factory=list)
     """MILKY连接配置"""
+    ONEBOT_ACCESS_TOKEN: str | None = None
+    """访问令牌"""
+    ONEBOT_V11_ACCESS_TOKEN: str | None = None
+    """v11访问令牌"""
 
 
 plugin_config: Config = nonebot.get_plugin_config(Config)
 system_config = nonebot.get_driver().config
-onebot_base = f"ws://{system_config.host}:{system_config.port}/onebot/"
